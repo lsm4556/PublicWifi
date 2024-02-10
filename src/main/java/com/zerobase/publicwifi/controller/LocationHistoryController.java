@@ -2,7 +2,7 @@ package com.zerobase.publicwifi.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import DTO.LocationHistoryDTO;
+import com.zerobase.publicwifi.DTO.LocationHistoryDTO;
 import com.zerobase.publicwifi.service.LocationHistoryService;
 import com.zerobase.publicwifi.util.ResponseUtil;
 import com.zerobase.publicwifi.util.ValidationUtil;

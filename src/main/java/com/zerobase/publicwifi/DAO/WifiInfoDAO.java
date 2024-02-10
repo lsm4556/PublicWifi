@@ -1,7 +1,7 @@
-package DAO;
+package com.zerobase.publicwifi.DAO;
 
 import com.zerobase.publicwifi.config.DatabaseConfig;
-import DTO.WifiInfoDTO;
+import com.zerobase.publicwifi.DTO.WifiInfoDTO;
 
 import java.sql.*;
 import java.util.ArrayList;

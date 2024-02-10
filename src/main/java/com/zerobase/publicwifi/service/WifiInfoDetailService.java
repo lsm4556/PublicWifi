@@ -1,7 +1,7 @@
 package com.zerobase.publicwifi.service;
 
-import DAO.WifiInfoDAO;
-import DTO.WifiInfoDTO;
+import com.zerobase.publicwifi.DAO.WifiInfoDAO;
+import com.zerobase.publicwifi.DTO.WifiInfoDTO;
 
 public class WifiInfoDetailService {
     private final WifiInfoDAO wifiInfoDAO = new WifiInfoDAO();

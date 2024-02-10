@@ -1,7 +1,7 @@
 package com.zerobase.publicwifi.service;
 
-import DAO.BookmarkDAO;
-import DTO.BookmarkDTO;
+import com.zerobase.publicwifi.DAO.BookmarkDAO;
+import com.zerobase.publicwifi.DTO.BookmarkDTO;
 
 import java.util.List;
 

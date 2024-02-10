@@ -1,4 +1,4 @@
-package DTO;
+package com.zerobase.publicwifi.DTO;
 
 import com.fasterxml.jackson.databind.JsonNode;
 

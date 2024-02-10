@@ -1,7 +1,7 @@
 package com.zerobase.publicwifi.controller;
 
 import com.google.gson.Gson;
-import com.zerobase.publicwifi.DTO.WifiInfoDTO;
+import com.zerobase.publicwifi.dto.WifiInfoDTO;
 import com.zerobase.publicwifi.service.WifiInfoDetailService;
 
 import javax.servlet.annotation.WebServlet;

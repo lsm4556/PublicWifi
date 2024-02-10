@@ -1,4 +1,4 @@
-package com.zerobase.publicwifi.DTO;
+package com.zerobase.publicwifi.dto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

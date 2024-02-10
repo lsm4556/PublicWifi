@@ -1,20 +1,18 @@
-package com.zerobase.publicwifi.DTO;
+package com.zerobase.publicwifi.dto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BookmarkGroupDTO {
+public class BookmarkDTO {
     private int id;
     private String bookmarkName;
-    private int sequence;
+    private String wifiName;
     private String createdAt;
-    private String updatedAt;
 
-    public BookmarkGroupDTO(ResultSet rs) throws SQLException {
+    public BookmarkDTO(ResultSet rs) throws SQLException {
         this.id = rs.getInt("id");
         this.bookmarkName = rs.getString("bookmarkName");
-        this.sequence = rs.getInt("sequence");
+        this.wifiName = rs.getString("wifiName");
         this.createdAt = rs.getString("createdAt");
-        this.updatedAt = rs.getString("updatedAt");
     }
 }

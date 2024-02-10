@@ -2,7 +2,7 @@ package com.zerobase.publicwifi.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.zerobase.publicwifi.DTO.BookmarkGroupDTO;
+import com.zerobase.publicwifi.dto.BookmarkGroupDTO;
 import com.zerobase.publicwifi.service.BookmarkGroupService;
 import com.zerobase.publicwifi.util.ResponseUtil;
 import com.zerobase.publicwifi.util.ValidationUtil;

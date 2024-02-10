@@ -1,0 +1,100 @@
+h2 {
+    margin: 15px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+li {
+    float: left;
+    display: inline;
+}
+
+li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #ddd;
+}
+
+.separator {
+    padding: 14px 8px; /* 간격 조절 */
+    font-weight: bold;
+}
+
+form {
+    margin: 10px;
+}
+
+/* 기본 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* 테이블 헤더의 글자 정렬과 추가적인 스타일링 */
+thead th {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 테이블의 hover 효과 */
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* 테이블 데이터가 없을 때의 스타일 */
+tbody tr.no-data td {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+.center-align td {
+    text-align: center;
+}
+
+#bookmarkGroup {
+    margin-left: 10px; /* 왼쪽으로 10px 이동 */
+}
+
+#moveAddBookmarkGroupBtn {
+    margin-left: 10px; /* 왼쪽으로 10px 이동 */
+}
+
+/* 각 테이블의 첫 번째 열에만 배경색 적용 */
+#wifiDetailTableBody tr td:first-child,
+#bookmarkGroupEditTableBody tr td:first-child,
+#bookmarkDeleteTableBody tr td:first-child {
+    background-color: #f2f2f2;
+    /* 기타 스타일링 속성 추가 */
+}
+
+/* 각 테이블의 맨 마지막 행에 배경색 적용하지 않음 */
+#bookmarkGroupEditTableBody tr:last-child td,
+#bookmarkDeleteTableBody tr:last-child td {
+    background-color: initial; /* 또는 원하는 배경색 값으로 대체 가능 */
+    /* 기타 스타일링 속성 추가 */
+}
+

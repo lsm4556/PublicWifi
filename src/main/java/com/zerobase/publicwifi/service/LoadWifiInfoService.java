@@ -2,8 +2,8 @@ package com.zerobase.publicwifi.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zerobase.publicwifi.model.WifiInfoDAO;
-import com.zerobase.publicwifi.model.WifiInfoDTO;
+import DAO.WifiInfoDAO;
+import DTO.WifiInfoDTO;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;

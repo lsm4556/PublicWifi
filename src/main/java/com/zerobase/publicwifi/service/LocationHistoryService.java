@@ -1,7 +1,7 @@
 package com.zerobase.publicwifi.service;
 
-import com.zerobase.publicwifi.model.LocationHistoryDAO;
-import com.zerobase.publicwifi.model.LocationHistoryDTO;
+import DAO.LocationHistoryDAO;
+import DTO.LocationHistoryDTO;
 
 import java.util.List;
 

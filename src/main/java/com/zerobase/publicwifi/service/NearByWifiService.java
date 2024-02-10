@@ -1,7 +1,7 @@
 package com.zerobase.publicwifi.service;
 
-import com.zerobase.publicwifi.model.WifiInfoDAO;
-import com.zerobase.publicwifi.model.WifiInfoDTO;
+import DAO.WifiInfoDAO;
+import DTO.WifiInfoDTO;
 
 import java.util.ArrayList;
 import java.util.Collections;

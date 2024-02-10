@@ -1,12 +1,13 @@
-package com.zerobase.publicwifi.model;
+package DAO;
 
 import com.zerobase.publicwifi.config.DatabaseConfig;
+import DTO.BookmarkGroupDTO;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookmarkDAO {
+public class BookmarkGroupDAO {
     String databaseUrl = DatabaseConfig.getDatabaseUrl();
 
     // 다른 메서드와 독립적으로 커넥션을 설정하는 메서드
@@ -14,15 +15,15 @@ public class BookmarkDAO {
         return DriverManager.getConnection(databaseUrl);
     }
 
-    public void insertBookmark(int bookmarkGroupId, String wifiManagementNumber) {
+    public void insertBookmarkGroup(String bookmarkName, int sequence) {
         try (Connection connection = connect();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "INSERT INTO Bookmark (bookmarkGroupId, wifiManagementNumber, createdAt) " +
+                     "INSERT INTO BookmarkGroup (bookmarkName, sequence, createdAt) " +
                              "VALUES (?, ?, datetime('now', 'localtime'))"
              )) {
             // xCoordinate와 yCoordinate 값을 preparedStatement에 설정
-            preparedStatement.setInt(1, bookmarkGroupId);
-            preparedStatement.setString(2, wifiManagementNumber);
+            preparedStatement.setString(1, bookmarkName);
+            preparedStatement.setInt(2, sequence);
 
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
@@ -32,8 +33,8 @@ public class BookmarkDAO {
 
 
     // id 받아서 삭제하는 메서드
-    public void deleteBookmark(int id) {
-        String query = "DELETE FROM Bookmark WHERE id = ?";
+    public void deleteBookmarkGroup(int id) {
+        String query = "DELETE FROM BookmarkGroup WHERE id = ?";
 
         try (Connection connection = connect();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -45,15 +46,30 @@ public class BookmarkDAO {
         }
     }
 
-    // Bookmark id로 조회하는 메서드
-    public BookmarkDTO selectBookmarkById(int id) {
-        BookmarkDTO bookmarkById = null;
+    // id 받아서 수정하는 메서드
+    public void updateBookmarkGroup(String bookmarkName, int sequence, int id) {
+        String query = "UPDATE BookmarkGroup " +
+                "SET bookmarkName = ?, sequence = ?, updatedAt = datetime('now', 'localtime') " +
+                "WHERE id = ?";
 
-        String query = "SELECT B.id as id, wifiName, bookmarkName, B.createdAt " +
-                "FROM Bookmark B " +
-                "    left join WifiInfo WI on WI.managementNumber = B.wifiManagementNumber " +
-                "    left join BookmarkGroup BG on BG.id = B.bookmarkGroupId " +
-                "WHERE B.id = ?";
+        try (Connection connection = connect();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, bookmarkName);
+            preparedStatement.setInt(2, sequence);
+            preparedStatement.setInt(3, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // BookmarkGroup id로 조회하는 메서드
+    public BookmarkGroupDTO selectBookmarkGroupById(int id) {
+        BookmarkGroupDTO bookmarkGroupById = null;
+
+        String query = "SELECT * FROM BookmarkGroup WHERE id = ?";
 
         try (Connection connection = connect();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -63,38 +79,35 @@ public class BookmarkDAO {
 
             try (ResultSet rs = preparedStatement.executeQuery()) {
                 if (rs.next()) {
-                    bookmarkById = new BookmarkDTO(rs);
+                    bookmarkGroupById = new BookmarkGroupDTO(rs);
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return bookmarkById;
+        return bookmarkGroupById;
     }
 
 
-    // 전체 Bookmark 정보를 조회하는 메서드
-    public List<BookmarkDTO> selectAllBookmark() {
-        List<BookmarkDTO> bookmarkList = new ArrayList<>();
+    // 전체 BookmarkGroup 정보를 조회하는 메서드
+    public List<BookmarkGroupDTO> selectAllBookmarkGroup() {
+        List<BookmarkGroupDTO> bookmarkGroupList = new ArrayList<>();
 
-        String query = "SELECT B.id as id, wifiName, bookmarkName, B.createdAt " +
-                "FROM Bookmark B " +
-                "    left join WifiInfo WI on WI.managementNumber = B.wifiManagementNumber " +
-                "    left join BookmarkGroup BG on BG.id = B.bookmarkGroupId;";
+        String query = "SELECT * FROM BookmarkGroup";
 
         try (Connection connection = connect();
              PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet rs = preparedStatement.executeQuery()) {
 
             while (rs.next()) {
-                BookmarkDTO bookmark = new BookmarkDTO(rs);
-                bookmarkList.add(bookmark);
+                BookmarkGroupDTO bookmarkGroup = new BookmarkGroupDTO(rs);
+                bookmarkGroupList.add(bookmarkGroup);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return bookmarkList;
+        return bookmarkGroupList;
     }
 }

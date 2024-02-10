@@ -1,6 +1,7 @@
-package com.zerobase.publicwifi.model;
+package DAO;
 
 import com.zerobase.publicwifi.config.DatabaseConfig;
+import DTO.LocationHistoryDTO;
 
 import java.sql.*;
 import java.util.ArrayList;

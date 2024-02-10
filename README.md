@@ -32,4 +32,4 @@
 2. 프로젝트를 IDE에 import 합니다.
 3. 필요한 설정을 수정합니다. (데이터베이스 경로 설정, OPEN API 키 등)
 4. Tomcat 서버를 실행하고 프로젝트를 배포합니다.
-5. 웹 브라우저에서 http://localhost:8080/publicwifi 로 접속합니다.
+5. 웹 브라우저에서 http://localhost:8080 로 접속합니다.

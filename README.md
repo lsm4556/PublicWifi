@@ -5,15 +5,16 @@
 
 ## 프로젝트 구조
 - publicwifi
-  - config
-    - DatabaseConfig.java: 데이터베이스 설정 클래스
   - controller : 컨트롤러 패키지
   - DAO : DB에 접근하는 데이터 액세스 객체 패키지
   - DTO : 데이터 전송 객체 패키지
   - service : 서비스 로직 패키지
+  - config
+    - DatabaseConfig.java: 데이터베이스 설정 클래스
   - util
     - ResponseUtil.java: 응답 관련 유틸리티 클래스
     - ValidationUtil.java: 유효성 검사 관련 유틸리티 클래스
+  - listener : 서버 실행 시 드라이버 로드
 - webapp
   - css
   - javascript

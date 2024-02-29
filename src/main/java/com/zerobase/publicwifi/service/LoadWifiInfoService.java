@@ -14,7 +14,7 @@ import java.util.*;
 public class LoadWifiInfoService {
 
     private final WifiInfoDAO wifiInfoDAO = new WifiInfoDAO();
-    private final String authKey = "5068416d6a6c736d36394341756247";
+    private final String authKey = "api-key";
 
     public List<WifiInfoDTO> loadAndSaveWifiInfo(int currentPage, int pageSize) {
         // API 호출을 위한 코드
